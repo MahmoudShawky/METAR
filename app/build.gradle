@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'dagger.hilt.android.plugin'
+
+
+android {
+    compileSdkVersion targetSdk
+    buildToolsVersion toolVersion
+
+    defaultConfig {
+        applicationId "eg.mahmoudShawky.metar"
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode appVersionCode
+        versionName appVersionName
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        debug{
+            buildConfigField("String", "BASE_URL", "\"https://tgftp.nws.noaa.gov/data/observations/metar/\"")
+        }
+        release {
+            minifyEnabled false
+            //shrinkResources true
+            buildConfigField("String", "BASE_URL", "\"https://tgftp.nws.noaa.gov/data/observations/metar/\"")
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0'
+
+    // Room components
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    androidTestImplementation "androidx.room:room-testing:$room_version"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    // Saved state module for ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    annotationProcessor "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
+    annotationProcessor 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
