@@ -1,11 +1,7 @@
-package com.giza.nova.util;
+package eg.mahmoudShawky.metar.utils;
 
 import android.util.Log;
 
-/***
- * @author Gomaa
- * 28/1/2019
- */
 public class AppLogger {
 
     private static AppLogger appLogger;

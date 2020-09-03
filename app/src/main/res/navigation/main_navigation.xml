@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/favouriteStationsFragment">
 
+    <fragment
+        android:id="@+id/favouriteStationsFragment"
+        android:name="eg.mahmoudShawky.metar.ui.favouriteStations.FavouriteStationsFragment"
+        android:label="favourite_stations_fragment"
+        tools:layout="@layout/fragment_favourite_stations">
+        <action
+            android:id="@+id/action_favouriteStationsFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_favouriteStationsFragment_to_metarDetailsFragment"
+            app:destination="@id/metarDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/metarDetailsFragment"
+        android:name="eg.mahmoudShawky.metar.ui.metarDetails.MetarDetailsFragment"
+        android:label="metar_details_fragment"
+        tools:layout="@layout/fragment_metar_details" >
+        <argument
+            android:name="stationId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="eg.mahmoudShawky.metar.ui.stationsSearch.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_metarDetailsFragment"
+            app:destination="@id/metarDetailsFragment" />
+    </fragment>
 </navigation>

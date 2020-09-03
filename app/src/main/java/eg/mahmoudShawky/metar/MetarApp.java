@@ -1,4 +1,9 @@
 package eg.mahmoudShawky.metar;
 
-public class MetarApp {
+import android.app.Application;
+
+import dagger.hilt.android.HiltAndroidApp;
+
+@HiltAndroidApp
+public class MetarApp extends Application {
 }

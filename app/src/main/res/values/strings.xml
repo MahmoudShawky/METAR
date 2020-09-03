@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">METAR</string>
     <string name="search">Search</string>
-    <string name="search_hint">Station ID or the airport name</string>
+    <string name="search_hint">Station ID or airport name</string>
     <string name="fragment_search_no_result">No result found</string>
-    <string name="fragment_favourite_stations_empty_msg">"No favourites stations press (+) to add "</string>
+    <string name="fragment_favourite_stations_empty_msg">"No favourite stations press (+) to add"</string>
     <string name="no_data_found">No Data Found</string>
     <string name="some_error_occured">Some Error has occurred, please try again</string>
+    <string name="no_active_connection">No active internet connection</string>
 </resources>
