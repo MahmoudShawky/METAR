@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -27,7 +26,6 @@ public class FavouriteStationsFragment extends BaseFragment {
     private FragmentFavouriteStationsBinding binding;
     private FavouriteStationsViewModel viewModel;
     private StationsAdapter adapter;
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -51,6 +49,7 @@ public class FavouriteStationsFragment extends BaseFragment {
 
     @Override
     protected void initUi() {
+        setBackEnabled(false);
         binding.ivAdd.setOnClickListener(view -> openSearchFragment());
         adapter = new StationsAdapter();
         adapter.addListener(new StationListener() {
@@ -72,8 +71,7 @@ public class FavouriteStationsFragment extends BaseFragment {
     private void openDetails(StationEntity station) {
         FavouriteStationsFragmentDirections.ActionFavouriteStationsFragmentToMetarDetailsFragment action
                 = FavouriteStationsFragmentDirections.actionFavouriteStationsFragmentToMetarDetailsFragment(station.getId());
-        NavHostFragment.findNavController(FavouriteStationsFragment.this)
-                .navigate(action);
+        getNavController().navigate(action);
     }
 
     @Override
@@ -114,7 +112,7 @@ public class FavouriteStationsFragment extends BaseFragment {
     }
 
     private void openSearchFragment() {
-        NavHostFragment.findNavController(this).navigate(R.id.action_favouriteStationsFragment_to_searchFragment);
+        getNavController().navigate(R.id.action_favouriteStationsFragment_to_searchFragment);
     }
 
     @Override

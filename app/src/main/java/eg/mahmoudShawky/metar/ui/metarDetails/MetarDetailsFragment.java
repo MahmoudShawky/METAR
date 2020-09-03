@@ -39,7 +39,7 @@ public class MetarDetailsFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(false);
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -49,18 +49,18 @@ public class MetarDetailsFragment extends BaseFragment {
             String id = MetarDetailsFragmentArgs.fromBundle(getArguments()).getStationId();
             factory = new MetarViewModelFactory(repo, id);
         }
-
     }
 
     @Override
     protected void initViewModel() {
         viewModel = new ViewModelProvider(this, factory).get(MetarDetailsViewModel.class);
+        viewModel.getStation();
     }
 
     @Override
     protected void initUi() {
+        setBackEnabled(true);
         binding.swipeRefreshLayout.setOnRefreshListener(() -> viewModel.getStation());
-        viewModel.getStation();
     }
 
     @Override

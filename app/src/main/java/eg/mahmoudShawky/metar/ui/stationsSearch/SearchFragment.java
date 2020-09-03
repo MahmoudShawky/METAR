@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -43,20 +42,18 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        viewModel.getAllStations();
-    }
 
     @Override
     protected void initViewModel() {
         viewModel = getViewModelProvider()
                 .get(SearchViewModel.class);
+
+        viewModel.getAllStations();
     }
 
     @Override
     protected void initUi() {
+        setBackEnabled(true);
         adapter = new StationsAdapter();
         adapter.addListener(new StationListener() {
             @Override
@@ -128,8 +125,7 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
         SearchFragmentDirections.ActionSearchFragmentToMetarDetailsFragment action =
                 SearchFragmentDirections.actionSearchFragmentToMetarDetailsFragment(station.getId());
 
-        NavHostFragment.findNavController(SearchFragment.this)
-                .navigate(action);
+        getNavController().navigate(action);
     }
 
     @Override

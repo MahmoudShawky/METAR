@@ -1,18 +1,22 @@
 package eg.mahmoudShawky.metar.ui.base;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavBackStackEntry;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.viewbinding.ViewBinding;
 
 import eg.mahmoudShawky.metar.R;
 
@@ -20,6 +24,8 @@ public abstract class BaseFragment extends Fragment {
 
     protected NavBackStackEntry backStackEntry;
     protected ViewModelProvider viewModelProvider;
+    private NavController navController;
+
 
     public void setBackStackEntry(@IdRes int destinationId) {
         this.backStackEntry = NavHostFragment.findNavController(this).getBackStackEntry(destinationId);
@@ -29,6 +35,10 @@ public abstract class BaseFragment extends Fragment {
         this.viewModelProvider = viewModelProvider;
     }
 
+    public NavController getNavController() {
+        return navController;
+    }
+
     public ViewModelProvider getViewModelProvider() {
         return viewModelProvider;
     }
@@ -36,11 +46,47 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = NavHostFragment.findNavController(this);
+        initUi();
         initViewModeProvider();
         initViewModel();
-        initUi();
         initObservers();
     }
+
+    protected void setBackEnabled(boolean enable) {
+        if (getActivity() != null && getActivity() instanceof AppCompatActivity) {
+            ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(enable);
+                if (enable) {
+                    // This callback will only be called when MyFragment is at least Started.
+                    OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+                        @Override
+                        public void handleOnBackPressed() {
+                            doBack();
+                        }
+                    };
+                    requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
+                }
+
+            }
+        }
+    }
+
+    private void doBack() {
+        navController.popBackStack();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            doBack();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
     protected abstract void initViewModel();
 
