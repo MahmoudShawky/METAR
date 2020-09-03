@@ -1,18 +1,18 @@
 package eg.mahmoudShawky.metar.ui.base;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import eg.mahmoudShawky.metar.data.Repository;
+import eg.mahmoudShawky.metar.utils.SingleLiveEvent;
 
 public class BaseViewModel extends ViewModel {
     protected Repository repository;
-    protected MutableLiveData<Integer> networkStatus = new MutableLiveData<>();
+    protected SingleLiveEvent<Integer> networkStatus = new SingleLiveEvent<>();
 
     //String Id
-    protected MutableLiveData<Integer> errorId = new MutableLiveData<>();
-    protected MutableLiveData<String> errorText = new MutableLiveData<>();
+    protected SingleLiveEvent<Integer> errorId = new SingleLiveEvent<>();
+    protected SingleLiveEvent<String> errorText = new SingleLiveEvent<>();
 
     public BaseViewModel(Repository repository) {
         this.repository = repository;

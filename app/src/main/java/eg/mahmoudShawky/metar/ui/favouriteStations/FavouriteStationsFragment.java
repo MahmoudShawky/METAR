@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,10 +56,7 @@ public class FavouriteStationsFragment extends BaseFragment {
         adapter.addListener(new StationListener() {
             @Override
             public void onItemClicked(StationEntity station) {
-                FavouriteStationsFragmentDirections.ActionFavouriteStationsFragmentToMetarDetailsFragment action
-                        = FavouriteStationsFragmentDirections.actionFavouriteStationsFragmentToMetarDetailsFragment(station.getId());
-                NavHostFragment.findNavController(FavouriteStationsFragment.this)
-                        .navigate(action);
+                openDetails(station);
             }
 
             @Override
@@ -73,13 +69,20 @@ public class FavouriteStationsFragment extends BaseFragment {
         binding.rvStations.setAdapter(adapter);
     }
 
+    private void openDetails(StationEntity station) {
+        FavouriteStationsFragmentDirections.ActionFavouriteStationsFragmentToMetarDetailsFragment action
+                = FavouriteStationsFragmentDirections.actionFavouriteStationsFragmentToMetarDetailsFragment(station.getId());
+        NavHostFragment.findNavController(FavouriteStationsFragment.this)
+                .navigate(action);
+    }
+
     @Override
     protected void initObservers() {
 
         viewModel.getStations().observe(getViewLifecycleOwner(), stationEntities -> {
-            if (stationEntities == null || stationEntities.isEmpty()){
-               showEmptyPlaceHolder(true);
-            }else {
+            if (stationEntities == null || stationEntities.isEmpty()) {
+                showEmptyPlaceHolder(true);
+            } else {
                 showEmptyPlaceHolder(false);
                 adapter.update(stationEntities);
             }

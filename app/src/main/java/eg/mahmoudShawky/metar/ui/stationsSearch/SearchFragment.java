@@ -7,11 +7,11 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -61,8 +61,7 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
         adapter.addListener(new StationListener() {
             @Override
             public void onItemClicked(StationEntity station) {
-                //// TODO: 9/2/2020 open details
-                Toast.makeText(getContext(), station.getStationName() + " is Clicked", Toast.LENGTH_SHORT).show();
+                openDetails(station);
             }
 
             @Override
@@ -125,11 +124,13 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
     }
 
 
-/*    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.search_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }*/
+    private void openDetails(StationEntity station) {
+        SearchFragmentDirections.ActionSearchFragmentToMetarDetailsFragment action =
+                SearchFragmentDirections.actionSearchFragmentToMetarDetailsFragment(station.getId());
+
+        NavHostFragment.findNavController(SearchFragment.this)
+                .navigate(action);
+    }
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {

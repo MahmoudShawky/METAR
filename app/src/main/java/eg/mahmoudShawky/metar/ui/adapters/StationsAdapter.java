@@ -2,7 +2,6 @@ package eg.mahmoudShawky.metar.ui.adapters;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
@@ -75,6 +74,7 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsAdapter.Statio
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
+                if (stationsList == null || stationsList.isEmpty()) return null;
                 isFilterMode = true;
                 String charString = charSequence.toString().toLowerCase();
 
@@ -100,8 +100,10 @@ public class StationsAdapter extends RecyclerView.Adapter<StationsAdapter.Statio
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                stationsListFiltered = (ArrayList<StationEntity>) filterResults.values;
-                notifyDataSetChanged();
+                if (filterResults != null) {
+                    stationsListFiltered = (ArrayList<StationEntity>) filterResults.values;
+                    notifyDataSetChanged();
+                }
             }
         };
     }
