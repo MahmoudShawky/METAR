@@ -48,7 +48,12 @@ public class RepositoryImp implements Repository {
     }
 
     @Override
-    public LiveData<List<StationEntity>> getFavouriteStations() {
+    public LiveData<List<StationEntity>> getFavouriteStationsLiveData() {
+        return dbHelper.getFavouriteStationsLiveData();
+    }
+
+    @Override
+    public List<StationEntity> getFavouriteStations() {
         return dbHelper.getFavouriteStations();
     }
 

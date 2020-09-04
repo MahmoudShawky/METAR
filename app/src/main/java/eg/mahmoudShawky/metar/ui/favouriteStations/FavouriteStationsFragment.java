@@ -35,13 +35,6 @@ public class FavouriteStationsFragment extends BaseFragment {
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-
-    @Override
     protected void initViewModel() {
         viewModel = getViewModelProvider()
                 .get(FavouriteStationsViewModel.class);
@@ -78,6 +71,7 @@ public class FavouriteStationsFragment extends BaseFragment {
     protected void initObservers() {
 
         viewModel.getStations().observe(getViewLifecycleOwner(), stationEntities -> {
+            hideLoading();
             if (stationEntities == null || stationEntities.isEmpty()) {
                 showEmptyPlaceHolder(true);
             } else {
@@ -87,11 +81,15 @@ public class FavouriteStationsFragment extends BaseFragment {
         });
     }
 
+    private void hideLoading() {
+        binding.centerLoading.setVisibility(View.GONE);
+    }
+
     private void showEmptyPlaceHolder(boolean isShow) {
-        if(isShow){
+        if (isShow) {
             binding.emptyPlaceHolder.setVisibility(View.VISIBLE);
             binding.mainLayout.setVisibility(View.GONE);
-        }else {
+        } else {
             binding.emptyPlaceHolder.setVisibility(View.GONE);
             binding.mainLayout.setVisibility(View.VISIBLE);
         }

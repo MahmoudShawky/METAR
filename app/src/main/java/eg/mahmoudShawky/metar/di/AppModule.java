@@ -1,6 +1,9 @@
 package eg.mahmoudShawky.metar.di;
 
 import android.content.Context;
+import android.util.Log;
+
+import androidx.work.Configuration;
 
 import javax.inject.Singleton;
 
@@ -16,8 +19,8 @@ import eg.mahmoudShawky.metar.data.local.db.DbHelperImp;
 import eg.mahmoudShawky.metar.data.local.db.MetarDatabase;
 import eg.mahmoudShawky.metar.data.remote.RemoteRepo;
 import eg.mahmoudShawky.metar.data.remote.RemoteRepoImp;
-import eg.mahmoudShawky.metar.ui.metarDetails.MetarDetailsViewModel;
 import eg.mahmoudShawky.metar.utils.ContextUtils;
+import eg.mahmoudShawky.metar.workers.MetarWorkerFactory;
 
 @InstallIn(ApplicationComponent.class)
 @Module
@@ -25,7 +28,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public static ContextUtils provideMetarDb(@ApplicationContext Context context){
+    public static ContextUtils provideMetarDb(@ApplicationContext Context context) {
         return new ContextUtils(context);
     }
 
@@ -47,11 +50,26 @@ public class AppModule {
         return new RepositoryImp(remoteRepo, dbHelper);
     }
 
+    @Provides
+    @Singleton
+    public static MetarWorkerFactory provideWorkerFactory(Repository repository) {
+        return new MetarWorkerFactory(repository);
+    }
+
+    @Provides
+    @Singleton
+    public static Configuration provideWorkManagerConfiguration(MetarWorkerFactory factory) {
+        return new Configuration.Builder()
+                .setMinimumLoggingLevel(Log.DEBUG)
+                .setWorkerFactory(factory)
+                .build();
+    }
+
+
 /*    @Provides
     public static MetarDetailsViewModel provideDetailsViewModel(RemoteRepo remoteRepo, String id) {
         return new RepositoryImp(remoteRepo, dbHelper);
     }*/
-
 
 
 }

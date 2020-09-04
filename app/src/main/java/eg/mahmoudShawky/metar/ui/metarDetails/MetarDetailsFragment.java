@@ -1,6 +1,7 @@
 package eg.mahmoudShawky.metar.ui.metarDetails;
 
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
+
+import java.text.SimpleDateFormat;
 
 import javax.inject.Inject;
 
@@ -29,17 +32,13 @@ public class MetarDetailsFragment extends BaseFragment {
     Repository repo;
     private MetarViewModelFactory factory;
 
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("");
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = FragmentMetarDetailsBinding.inflate(inflater, container, false);
         return binding.getRoot();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -74,6 +73,15 @@ public class MetarDetailsFragment extends BaseFragment {
                 adapter.updatePairs(result);
             }
             binding.swipeRefreshLayout.setRefreshing(false);
+        });
+
+        viewModel.station.observe(getViewLifecycleOwner(), stationEntity -> {
+            if (stationEntity == null || stationEntity.getLastUpdateTime() == null) return;
+            CharSequence updatedAt = DateUtils.getRelativeDateTimeString(requireContext(),
+                    stationEntity.getLastUpdateTime(),
+                    DateUtils.MINUTE_IN_MILLIS, DateUtils.WEEK_IN_MILLIS, 0);
+
+            binding.tvUpdatedAt.setText(updatedAt);
         });
 
         viewModel.getErrorId().observe(getViewLifecycleOwner(), this::showError);

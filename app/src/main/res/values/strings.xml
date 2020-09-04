@@ -7,4 +7,5 @@
     <string name="no_data_found">No Data Found</string>
     <string name="some_error_occured">Some Error has occurred, please try again</string>
     <string name="no_active_connection">No active internet connection</string>
+    <string name="updated_at">Last update:</string>
 </resources>

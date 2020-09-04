@@ -37,13 +37,6 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
-
-
-    @Override
     protected void initViewModel() {
         viewModel = getViewModelProvider()
                 .get(SearchViewModel.class);

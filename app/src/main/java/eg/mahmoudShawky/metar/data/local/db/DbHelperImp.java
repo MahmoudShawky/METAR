@@ -41,7 +41,12 @@ public class DbHelperImp implements DbHelper {
     }
 
     @Override
-    public LiveData<List<StationEntity>> getFavouriteStations() {
+    public LiveData<List<StationEntity>> getFavouriteStationsLiveData() {
+        return metarDatabase.stationDAO().getFavouriteStationsLiveData();
+    }
+
+    @Override
+    public List<StationEntity> getFavouriteStations() {
         return metarDatabase.stationDAO().getFavouriteStations();
     }
 

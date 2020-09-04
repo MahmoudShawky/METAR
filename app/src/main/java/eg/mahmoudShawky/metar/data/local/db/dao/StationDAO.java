@@ -26,10 +26,13 @@ public interface StationDAO {
     LiveData<List<StationEntity>> getAllStations();
 
     @Query("SELECT* FROM stations_table WHERE isFavourite = 1 ORDER BY id ASC")
-    LiveData<List<StationEntity>> getFavouriteStations();
+    LiveData<List<StationEntity>> getFavouriteStationsLiveData();
+
+    @Query("SELECT* FROM stations_table WHERE isFavourite = 1 ORDER BY id ASC")
+    List<StationEntity> getFavouriteStations();
 
     @Query("SELECT* FROM stations_table WHERE id = :id")
-    LiveData<StationEntity> getStation( String id);
+    LiveData<StationEntity> getStation(String id);
 
     @Query("SELECT* FROM stations_table WHERE id LIKE :filter OR stationName LIKE :filter ORDER BY id ASC")
     LiveData<List<StationEntity>> searchForStations(String filter);
@@ -39,4 +42,7 @@ public interface StationDAO {
 
     @Query("UPDATE stations_table SET decodedData = :data, lastUpdateTime= :updateTime WHERE id = :id")
     void updateDecodedData(String id, String data, Long updateTime);
+
+/*    @Query("SELECT lastUpdateTime FROM stations_table WHERE id = :id")
+    LiveData<Long> getLastUpdateTime(String id);*/
 }

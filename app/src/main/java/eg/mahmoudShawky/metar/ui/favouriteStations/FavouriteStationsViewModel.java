@@ -2,7 +2,6 @@ package eg.mahmoudShawky.metar.ui.favouriteStations;
 
 import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class FavouriteStationsViewModel extends BaseViewModel {
     @ViewModelInject
     public FavouriteStationsViewModel(Repository repository) {
         super(repository);
-        stations = repository.getFavouriteStations();
+        stations = repository.getFavouriteStationsLiveData();
     }
 
     public void setFavouriteStation(StationEntity station, boolean isFavourite) {
