@@ -10,13 +10,12 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import dagger.hilt.android.scopes.ActivityScoped;
-import dagger.hilt.android.scopes.FragmentScoped;
 import eg.mahmoudShawky.metar.R;
 import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
 import eg.mahmoudShawky.metar.utils.AppLogger;
-import eg.mahmoudShawky.metar.utils.Consts;
+import eg.mahmoudShawky.metar.utils.Constants;
 import eg.mahmoudShawky.metar.utils.concurrent.SimpleTask;
 
 import static eg.mahmoudShawky.metar.utils.NetworkStatus.FAILED;
@@ -52,7 +51,7 @@ public class SearchViewModel extends BaseViewModel {
     private void getStationsFromRemote() {
         SimpleTask.run(() -> {
             try {
-                List<Pair<String, String>> stationsList = repository.getStationsCodes(Consts.GERMANY_STATIONS_PREFIX);
+                List<Pair<String, String>> stationsList = repository.getStationsCodes(Constants.GERMANY_STATIONS_PREFIX);
                 CountDownLatch latch = new CountDownLatch(stationsList.size());
 
                 //in case of no files that mean no data,

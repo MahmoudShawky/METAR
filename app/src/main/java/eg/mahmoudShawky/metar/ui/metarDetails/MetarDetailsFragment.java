@@ -21,6 +21,7 @@ import eg.mahmoudShawky.metar.databinding.FragmentMetarDetailsBinding;
 import eg.mahmoudShawky.metar.di.MetarViewModelFactory;
 import eg.mahmoudShawky.metar.ui.adapters.LabelValueAdapter;
 import eg.mahmoudShawky.metar.ui.base.BaseFragment;
+import eg.mahmoudShawky.metar.utils.NetworkStatus;
 
 @AndroidEntryPoint
 public class MetarDetailsFragment extends BaseFragment {
@@ -64,6 +65,20 @@ public class MetarDetailsFragment extends BaseFragment {
 
     @Override
     protected void initObservers() {
+        viewModel.getNetworkStatus().observe(getViewLifecycleOwner(), status -> {
+            switch (status) {
+                case NetworkStatus.SUCCESS:
+                case NetworkStatus.FAILED:
+                    binding.swipeRefreshLayout.setRefreshing(false);
+                    break;
+
+                case NetworkStatus.REFRESHING:
+                    binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
+                    binding.swipeRefreshLayout.setRefreshing(true);
+                    break;
+            }
+        });
+
         viewModel.pairList.observe(getViewLifecycleOwner(), result -> {
             if (result == null) return;
             if (adapter == null) {

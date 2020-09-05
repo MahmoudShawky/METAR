@@ -13,12 +13,12 @@ import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.utils.AppLogger;
 
-public class UpdateWork extends Worker {
+public class RefreshFavouritesWork extends Worker {
 
     public static final String TAG = "UpdateWork";
     private final Repository repository;
 
-    public UpdateWork(@NonNull Context context, @NonNull WorkerParameters workerParams, Repository repository) {
+    public RefreshFavouritesWork(@NonNull Context context, @NonNull WorkerParameters workerParams, Repository repository) {
         super(context, workerParams);
         this.repository = repository;
     }

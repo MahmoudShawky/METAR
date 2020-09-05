@@ -3,7 +3,6 @@ package eg.mahmoudShawky.metar.ui.metarDetails;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
-import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
 
@@ -12,13 +11,15 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import dagger.hilt.android.scopes.ActivityScoped;
-import dagger.hilt.android.scopes.FragmentScoped;
 import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
 import eg.mahmoudShawky.metar.utils.AppLogger;
 import eg.mahmoudShawky.metar.utils.concurrent.SimpleTask;
+
+import static eg.mahmoudShawky.metar.utils.NetworkStatus.FAILED;
+import static eg.mahmoudShawky.metar.utils.NetworkStatus.REFRESHING;
+import static eg.mahmoudShawky.metar.utils.NetworkStatus.SUCCESS;
 
 public class MetarDetailsViewModel extends BaseViewModel {
 
@@ -39,7 +40,8 @@ public class MetarDetailsViewModel extends BaseViewModel {
 
     @NotNull
     ArrayList<Pair<String, String>> getPairs(StationEntity stationEntity) {
-        if (stationEntity == null) return new ArrayList<>();
+        if (stationEntity == null || stationEntity.getDecodedData() == null)
+            return new ArrayList<>();
         String[] lines = stationEntity.getDecodedData().split("\n");
         ArrayList<Pair<String, String>> pairs = new ArrayList<>(lines.length);
         for (int i = 0; i < lines.length; i++) {
@@ -58,12 +60,15 @@ public class MetarDetailsViewModel extends BaseViewModel {
     }
 
     public void getStation() {
+        networkStatus.setValue(REFRESHING);
         SimpleTask.run(() -> {
             try {
                 String decodedFile = repository.getStationsDecodedFile(id);
                 repository.updateDecodedData(id, decodedFile, System.currentTimeMillis());
+                networkStatus.postValue(SUCCESS);
             } catch (IOException e) {
                 errorText.postValue(e.getMessage());
+                networkStatus.postValue(FAILED);
             }
         });
     }

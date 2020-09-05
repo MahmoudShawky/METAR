@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.work.Configuration;
+import androidx.work.WorkManager;
 
 import javax.inject.Singleton;
 
@@ -63,6 +64,12 @@ public class AppModule {
                 .setMinimumLoggingLevel(Log.DEBUG)
                 .setWorkerFactory(factory)
                 .build();
+    }
+
+    @Provides
+    @Singleton
+    public static WorkManager provideWorkManager(@ApplicationContext Context context) {
+        return WorkManager.getInstance(context);
     }
 
 

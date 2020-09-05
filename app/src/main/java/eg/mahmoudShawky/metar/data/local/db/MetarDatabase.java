@@ -6,12 +6,14 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import eg.mahmoudShawky.metar.data.local.db.dao.StationDAO;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
+import eg.mahmoudShawky.metar.utils.Constants;
 
+/***
+ * @author mahmoud.shawky
+ * Application Room Database
+ */
 @Database(entities = {StationEntity.class}, version = 1, exportSchema = false)
 public abstract class MetarDatabase extends RoomDatabase {
 
@@ -24,7 +26,7 @@ public abstract class MetarDatabase extends RoomDatabase {
             synchronized (MetarDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            MetarDatabase.class, "metar_database")
+                            MetarDatabase.class, Constants.DB_NAME)
                             .build();
                 }
             }

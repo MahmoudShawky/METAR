@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import eg.mahmoudShawky.metar.R;
-import eg.mahmoudShawky.metar.utils.Consts;
-import eg.mahmoudShawky.metar.workers.UpdateWork;
+import eg.mahmoudShawky.metar.utils.Constants;
+import eg.mahmoudShawky.metar.workers.RefreshFavouritesWork;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
@@ -24,20 +24,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startPeriodicRefreshWork();
+    }
 
-        WorkManager workManager = WorkManager.getInstance(this);
 
+    public void startPeriodicRefreshWork() {
         Constraints updateConstraint = new Constraints.Builder()
                 .setRequiresBatteryNotLow(true)
                 .setRequiredNetworkType(NetworkType.CONNECTED)
                 .build();
 
         PeriodicWorkRequest updateRequest =
-                new PeriodicWorkRequest.Builder(UpdateWork.class, Consts.UPDATE_INTERVAL_IN_MIN, TimeUnit.MINUTES)
+                new PeriodicWorkRequest.Builder(RefreshFavouritesWork.class,
+                        Constants.UPDATE_INTERVAL_MIN, TimeUnit.MINUTES,
+                        Constants.UPDATE_INTERVAL_MAX, TimeUnit.MINUTES)
                         .setConstraints(updateConstraint)
                         .build();
 
-        workManager.enqueue(updateRequest);
+        WorkManager.getInstance(this).enqueue(updateRequest);
     }
 
 }

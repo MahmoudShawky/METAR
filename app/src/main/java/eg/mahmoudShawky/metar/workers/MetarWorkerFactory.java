@@ -21,8 +21,8 @@ public class MetarWorkerFactory extends WorkerFactory {
     @Nullable
     @Override
     public ListenableWorker createWorker(@NonNull Context appContext, @NonNull String workerClassName, @NonNull WorkerParameters workerParameters) {
-        if (workerClassName.equalsIgnoreCase(UpdateWork.class.getName())) {
-            return new UpdateWork(appContext, workerParameters, repository);
+        if (workerClassName.equalsIgnoreCase(RefreshFavouritesWork.class.getName())) {
+            return new RefreshFavouritesWork(appContext, workerParameters, repository);
         }
         throw new IllegalArgumentException("Unknown Worker Class");
     }
