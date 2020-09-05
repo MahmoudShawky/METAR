@@ -7,6 +7,11 @@ import java.util.List;
 
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Database helper is an interface that should be implemented to be able to interact with @{@link MetarDatabase}
+ */
 public interface DbHelper {
     void insertStation(StationEntity stationEntity);
 

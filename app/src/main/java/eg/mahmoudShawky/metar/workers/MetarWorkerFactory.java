@@ -10,6 +10,11 @@ import androidx.work.WorkerParameters;
 
 import eg.mahmoudShawky.metar.data.Repository;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Factory for creating a {@link RefreshFavouritesWork}
+ */
 public class MetarWorkerFactory extends WorkerFactory {
 
     private Repository repository;

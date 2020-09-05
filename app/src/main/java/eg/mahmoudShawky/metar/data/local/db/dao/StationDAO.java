@@ -10,6 +10,10 @@ import androidx.room.Update;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * @author mahmoud.shawky
+ * Data Access Object for {@link StationEntity} class
+ */
 @Dao
 public interface StationDAO {
 

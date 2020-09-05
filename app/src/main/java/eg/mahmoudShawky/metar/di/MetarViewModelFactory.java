@@ -4,13 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.lang.reflect.InvocationTargetException;
-
-import javax.inject.Inject;
-
 import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.ui.metarDetails.MetarDetailsViewModel;
 
+/***
+ * @author mahmoud.shawky
+ * MetarViewModelFactory is a Factory for creating a {@link MetarDetailsViewModel} which it's constracor require Station Id (Code)
+ */
 public class MetarViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private String id;

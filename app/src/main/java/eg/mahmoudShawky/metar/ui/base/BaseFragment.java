@@ -20,6 +20,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import eg.mahmoudShawky.metar.R;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Base Fragment that contains the common implementations for the app fragments
+ */
 public abstract class BaseFragment extends Fragment {
 
     protected NavBackStackEntry backStackEntry;
@@ -111,10 +116,12 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void clearBinding();
 
+    //show error by res string id
     public void showError(@StringRes int strId) {
         showError(getString(strId));
     }
 
+    //show error by string message
     public void showError(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
     }

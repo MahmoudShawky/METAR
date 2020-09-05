@@ -23,8 +23,14 @@ import eg.mahmoudShawky.metar.data.remote.RemoteRepoImp;
 import eg.mahmoudShawky.metar.utils.ContextUtils;
 import eg.mahmoudShawky.metar.workers.MetarWorkerFactory;
 
-@InstallIn(ApplicationComponent.class)
+/***
+ * @author mahmoud.shawky
+ *
+ * Hint Application Module to provide the required objects
+ * see https://developer.android.com/training/dependency-injection/hilt-android
+ */
 @Module
+@InstallIn(ApplicationComponent.class)
 public class AppModule {
 
     @Provides

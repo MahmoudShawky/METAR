@@ -1,8 +1,5 @@
 package eg.mahmoudShawky.metar.utils;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -13,6 +10,9 @@ import androidx.annotation.NonNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/***
+ * @author mahmoud.shawky
+ */
 public class Utils {
     private static volatile Handler handler;
 

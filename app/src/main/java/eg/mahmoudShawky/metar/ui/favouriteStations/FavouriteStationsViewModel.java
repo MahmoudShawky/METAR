@@ -9,7 +9,7 @@ import dagger.hilt.android.scopes.ActivityScoped;
 import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
-import eg.mahmoudShawky.metar.utils.concurrent.SimpleTask;
+import eg.mahmoudShawky.metar.utils.concurrent.SimpleAsyncTask;
 
 @ActivityScoped
 public class FavouriteStationsViewModel extends BaseViewModel {
@@ -28,6 +28,6 @@ public class FavouriteStationsViewModel extends BaseViewModel {
 
     public void setFavouriteStation(StationEntity station, boolean isFavourite) {
         station.setFavourite(isFavourite);
-        SimpleTask.run(() -> repository.updateStation(station));
+        SimpleAsyncTask.run(() -> repository.updateStation(station));
     }
 }

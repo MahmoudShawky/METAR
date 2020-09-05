@@ -6,12 +6,18 @@ import androidx.lifecycle.ViewModel;
 import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.utils.SingleLiveEvent;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Base ViewModel that contains the common implementations for the app View Models
+ */
 public class BaseViewModel extends ViewModel {
     protected Repository repository;
     protected SingleLiveEvent<Integer> networkStatus = new SingleLiveEvent<>();
 
-    //String Id
+    //Res String Id
     protected SingleLiveEvent<Integer> errorId = new SingleLiveEvent<>();
+    //String Message
     protected SingleLiveEvent<String> errorText = new SingleLiveEvent<>();
 
     public BaseViewModel(Repository repository) {

@@ -20,6 +20,11 @@ import eg.mahmoudShawky.metar.ui.adapters.StationListener;
 import eg.mahmoudShawky.metar.ui.adapters.StationsAdapter;
 import eg.mahmoudShawky.metar.ui.base.BaseFragment;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * A fragment of all favourite Stations
+ */
 @AndroidEntryPoint
 public class FavouriteStationsFragment extends BaseFragment {
 

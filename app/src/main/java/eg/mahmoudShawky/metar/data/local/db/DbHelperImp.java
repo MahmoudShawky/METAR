@@ -10,6 +10,12 @@ import javax.inject.Singleton;
 
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * The implementation of {@link DbHelper}
+ */
+
 @Singleton
 public class DbHelperImp implements DbHelper {
 

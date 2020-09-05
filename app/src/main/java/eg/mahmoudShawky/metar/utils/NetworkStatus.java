@@ -5,6 +5,9 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+/***
+ * @author mahmoud.shawky
+ */
 @IntDef({NetworkStatus.RUNNING, NetworkStatus.REFRESHING, NetworkStatus.SUCCESS, NetworkStatus.SUCCESS_NO_DATA, NetworkStatus.FAILED})
 @Retention(RetentionPolicy.SOURCE)
 public @interface NetworkStatus {

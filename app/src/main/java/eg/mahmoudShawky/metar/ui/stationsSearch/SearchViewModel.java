@@ -16,7 +16,7 @@ import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
 import eg.mahmoudShawky.metar.utils.AppLogger;
 import eg.mahmoudShawky.metar.utils.Constants;
-import eg.mahmoudShawky.metar.utils.concurrent.SimpleTask;
+import eg.mahmoudShawky.metar.utils.concurrent.SimpleAsyncTask;
 
 import static eg.mahmoudShawky.metar.utils.NetworkStatus.FAILED;
 import static eg.mahmoudShawky.metar.utils.NetworkStatus.REFRESHING;
@@ -42,6 +42,7 @@ public class SearchViewModel extends BaseViewModel {
         loadData(false);
     }
 
+    //Load data (show Refreshing indication if data retrieved before)
     public void loadData(boolean isRefresh) {
         if (isRefresh) networkStatus.setValue(REFRESHING);
         else networkStatus.setValue(RUNNING);
@@ -49,7 +50,7 @@ public class SearchViewModel extends BaseViewModel {
     }
 
     private void getStationsFromRemote() {
-        SimpleTask.run(() -> {
+        SimpleAsyncTask.run(() -> {
             try {
                 List<Pair<String, String>> stationsList = repository.getStationsCodes(Constants.GERMANY_STATIONS_PREFIX);
                 CountDownLatch latch = new CountDownLatch(stationsList.size());
@@ -68,7 +69,7 @@ public class SearchViewModel extends BaseViewModel {
                 //we can update one by one or all
                 //ArrayList<StationEntity> stationEntities = new ArrayList<>(stationsList.size());
                 for (Pair<String, String> locationNamePair : stationsList) {
-                    SimpleTask.run(() -> {
+                    SimpleAsyncTask.run(() -> {
                         try {
                             String decodedData = repository.getStationsDecodedFile(locationNamePair.second);
                             insertNewStation(locationNamePair.second, decodedData);
@@ -118,14 +119,14 @@ public class SearchViewModel extends BaseViewModel {
     public void searchForStation(String filter) {
         networkStatus.postValue(REFRESHING);
         String finalFilter = "%" + filter;
-        SimpleTask.run(() -> {
+        SimpleAsyncTask.run(() -> {
             stations = repository.searchForStations(finalFilter);
         });
     }
 
     public void setFavouriteStation(StationEntity station, boolean isFavourite) {
         station.setFavourite(isFavourite);
-        SimpleTask.run(() -> repository.updateStation(station));
+        SimpleAsyncTask.run(() -> repository.updateStation(station));
     }
 
 }

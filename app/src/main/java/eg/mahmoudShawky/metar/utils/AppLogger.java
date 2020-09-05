@@ -2,6 +2,11 @@ package eg.mahmoudShawky.metar.utils;
 
 import android.util.Log;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Represnts a single class for logging, helps us if we need to add anothe logging way
+ */
 public class AppLogger {
 
     private static AppLogger appLogger;

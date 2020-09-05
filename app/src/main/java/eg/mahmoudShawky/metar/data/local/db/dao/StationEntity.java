@@ -6,6 +6,14 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Represent a table of station data, id for Station Code, station name if available
+ * decodedData and rawData can be retrieved and inserted
+ * lastUpdateTime (system time im ms)to save last time that row has been updated
+ * isFavourite to set the station to favourite list
+ */
 @Entity(tableName = "stations_table")
 public class StationEntity {
 

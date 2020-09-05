@@ -11,6 +11,12 @@ import java.util.ArrayList;
 
 import eg.mahmoudShawky.metar.databinding.ListItemLabelValueBinding;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Adapter for the {@link RecyclerView} in {@link eg.mahmoudShawky.metar.ui.metarDetails.MetarDetailsFragment}
+ * Can be used to display any list of Label and text pairs
+ */
 public class LabelValueAdapter extends RecyclerView.Adapter<LabelValueAdapter.LabelValueViewHolder> {
 
     private ArrayList<Pair<String, String>> labelValueList;

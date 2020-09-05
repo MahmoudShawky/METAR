@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
-import java.text.SimpleDateFormat;
-
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -23,6 +21,11 @@ import eg.mahmoudShawky.metar.ui.adapters.LabelValueAdapter;
 import eg.mahmoudShawky.metar.ui.base.BaseFragment;
 import eg.mahmoudShawky.metar.utils.NetworkStatus;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * A fragment representing the Weather details for a station
+ */
 @AndroidEntryPoint
 public class MetarDetailsFragment extends BaseFragment {
 
@@ -33,7 +36,6 @@ public class MetarDetailsFragment extends BaseFragment {
     Repository repo;
     private MetarViewModelFactory factory;
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("");
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,

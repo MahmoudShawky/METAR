@@ -10,7 +10,13 @@ import java.util.concurrent.Executors;
 
 import eg.mahmoudShawky.metar.utils.Utils;
 
-public class SimpleTask {
+/***
+ * @author mahmoud.shawky
+ *
+ * Help to run a block of code in background and and pass the result to forground if needed
+ * It can be aware of lifecycle
+ */
+public class SimpleAsyncTask {
 
     private static final ExecutorService EXECUTOR_SERVICE =
             Executors.newFixedThreadPool(Math.max(2, Math.min(Runtime.getRuntime().availableProcessors() - 1, 4)),

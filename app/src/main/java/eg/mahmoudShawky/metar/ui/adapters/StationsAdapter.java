@@ -15,13 +15,22 @@ import java.util.List;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.databinding.ListItemStationBinding;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * Adapter for the {@link RecyclerView} in {@link eg.mahmoudShawky.metar.ui.stationsSearch.SearchFragment}
+ * and {@link eg.mahmoudShawky.metar.ui.favouriteStations.FavouriteStationsFragment}
+ * implements Filterable for search
+ */
 public class StationsAdapter extends RecyclerView.Adapter<StationsAdapter.StationViewHolder> implements Filterable {
 
     private ArrayList<StationEntity> stationsList;
     private ArrayList<StationEntity> stationsListFiltered;
+    //a flag to differentiate between normal and search modes (true at search mode)
     private boolean isFilterMode = false;
     private StationListener listener;
 
+    //to update the list with new item list
     public void update(List<StationEntity> stationsList) {
         this.stationsList = (ArrayList<StationEntity>) stationsList;
         if(!isFilterMode){

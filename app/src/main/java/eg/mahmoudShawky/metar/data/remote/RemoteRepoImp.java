@@ -21,6 +21,11 @@ import eg.mahmoudShawky.metar.utils.ContextUtils;
 import eg.mahmoudShawky.metar.utils.Utils;
 import eg.mahmoudShawky.metar.utils.exceptions.NetworkException;
 
+/***
+ * @author mahmoud.shawky
+ *
+ * The implementation of {@link RemoteRepo}
+ */
 @Singleton
 public class RemoteRepoImp implements RemoteRepo {
     private static final String TAG = "RemoteRepoImp";
@@ -37,6 +42,13 @@ public class RemoteRepoImp implements RemoteRepo {
         return getDirectoryFiles(nameFilter, ServicesUrls.getDecodedDirectoryUrl());
     }
 
+    /***
+     * to get a list of files in a specific directory
+     * @param nameFilter String to filter the files that starts with it only
+     * @param directoryUrl directory path
+     * @return a pair of location (file name) and the display name
+     * @throws IOException NetworkException if no internet or any IOException that may be happened
+     */
     @NotNull
     private List<Pair<String, String>> getDirectoryFiles(String nameFilter, String directoryUrl) throws IOException {
         if (!contextUtils.isOnline()) throw new NetworkException();
@@ -71,6 +83,12 @@ public class RemoteRepoImp implements RemoteRepo {
         return getFileContent(ServicesUrls.getDecodedFileUrl(stationCode));
     }
 
+    /***
+     * Read the file content
+     * @param directoryUrl file path
+     * @return file content
+     * @throws IOException NetworkException if no internet or any IOException that may be happened
+     */
     @NotNull
     private String getFileContent(String directoryUrl) throws IOException {
         if (!contextUtils.isOnline()) throw new NetworkException();

@@ -15,7 +15,7 @@ import eg.mahmoudShawky.metar.data.Repository;
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
 import eg.mahmoudShawky.metar.utils.AppLogger;
-import eg.mahmoudShawky.metar.utils.concurrent.SimpleTask;
+import eg.mahmoudShawky.metar.utils.concurrent.SimpleAsyncTask;
 
 import static eg.mahmoudShawky.metar.utils.NetworkStatus.FAILED;
 import static eg.mahmoudShawky.metar.utils.NetworkStatus.REFRESHING;
@@ -38,6 +38,12 @@ public class MetarDetailsViewModel extends BaseViewModel {
         pairList = Transformations.map(station, this::getPairs);
     }
 
+    /***
+     * To map the decoded data to be label and data pairs
+     * Like Label (Temperature:) and data (55 F)
+     * @param stationEntity StationEntity
+     * @return Pair of Label and data
+     */
     @NotNull
     ArrayList<Pair<String, String>> getPairs(StationEntity stationEntity) {
         if (stationEntity == null || stationEntity.getDecodedData() == null)
@@ -59,9 +65,10 @@ public class MetarDetailsViewModel extends BaseViewModel {
         return pairs;
     }
 
+    // Read decoded file from remote and update it on database
     public void getStation() {
         networkStatus.setValue(REFRESHING);
-        SimpleTask.run(() -> {
+        SimpleAsyncTask.run(() -> {
             try {
                 String decodedFile = repository.getStationsDecodedFile(id);
                 repository.updateDecodedData(id, decodedFile, System.currentTimeMillis());

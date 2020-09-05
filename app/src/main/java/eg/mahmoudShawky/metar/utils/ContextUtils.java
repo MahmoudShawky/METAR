@@ -5,11 +5,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 /***
+ * @author mahmoud.shawky
  * This class contains utils that require context
- * Author: Mahmoud Shawky
  */
 public class ContextUtils {
 
