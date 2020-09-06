@@ -1,4 +1,4 @@
-package eg.mahmoudShawky.metar.ui.favouriteStations;
+package eg.mahmoudShawky.metar.ui.favoritesStations;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,10 +26,10 @@ import eg.mahmoudShawky.metar.ui.base.BaseFragment;
  * A fragment of all favourite Stations
  */
 @AndroidEntryPoint
-public class FavouriteStationsFragment extends BaseFragment {
+public class FavoritesFragment extends BaseFragment {
 
     private FragmentFavouriteStationsBinding binding;
-    private FavouriteStationsViewModel viewModel;
+    private FavoritesViewModel viewModel;
     private StationsAdapter adapter;
 
     @Override
@@ -42,7 +42,7 @@ public class FavouriteStationsFragment extends BaseFragment {
     @Override
     protected void initViewModel() {
         viewModel = getViewModelProvider()
-                .get(FavouriteStationsViewModel.class);
+                .get(FavoritesViewModel.class);
     }
 
     @Override

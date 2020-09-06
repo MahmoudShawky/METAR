@@ -14,12 +14,13 @@ import java.util.List;
 
 import eg.mahmoudShawky.metar.data.local.db.dao.StationEntity;
 import eg.mahmoudShawky.metar.databinding.ListItemStationBinding;
+import eg.mahmoudShawky.metar.ui.favoritesStations.FavoritesFragment;
 
 /***
  * @author mahmoud.shawky
  *
  * Adapter for the {@link RecyclerView} in {@link eg.mahmoudShawky.metar.ui.stationsSearch.SearchFragment}
- * and {@link eg.mahmoudShawky.metar.ui.favouriteStations.FavouriteStationsFragment}
+ * and {@link FavoritesFragment}
  * implements Filterable for search
  */
 public class StationsAdapter extends RecyclerView.Adapter<StationsAdapter.StationViewHolder> implements Filterable {

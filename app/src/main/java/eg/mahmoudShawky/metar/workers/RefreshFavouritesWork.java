@@ -95,7 +95,7 @@ public class RefreshFavouritesWork extends Worker {
                 .setContentTitle(title)
                 .setTicker(title)
                 .setOngoing(true)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_weather)
                 // Add the cancel action to the notification which can
                 // be used to cancel the worker
                 .addAction(android.R.drawable.ic_delete, cancel, intent)

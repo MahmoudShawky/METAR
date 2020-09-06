@@ -96,7 +96,7 @@ public class SearchViewModel extends BaseViewModel {
         });
     }
 
-    private void insertNewStation(String code, String decodedData) {
+    void insertNewStation(String code, String decodedData) {
         if (decodedData != null && !decodedData.isEmpty()) {
             String firstLine = decodedData.split("\n")[0];
             String stationName;
@@ -116,13 +116,6 @@ public class SearchViewModel extends BaseViewModel {
         stations = repository.getAllStations();
     }
 
-    public void searchForStation(String filter) {
-        networkStatus.postValue(REFRESHING);
-        String finalFilter = "%" + filter;
-        SimpleAsyncTask.run(() -> {
-            stations = repository.searchForStations(finalFilter);
-        });
-    }
 
     public void setFavouriteStation(StationEntity station, boolean isFavourite) {
         station.setFavourite(isFavourite);

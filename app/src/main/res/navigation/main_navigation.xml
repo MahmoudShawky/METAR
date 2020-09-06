@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/favouriteStationsFragment"
-        android:name="eg.mahmoudShawky.metar.ui.favouriteStations.FavouriteStationsFragment"
+        android:name="eg.mahmoudShawky.metar.ui.favoritesStations.FavoritesFragment"
         android:label="favourite_stations_fragment"
         tools:layout="@layout/fragment_favourite_stations">
         <action

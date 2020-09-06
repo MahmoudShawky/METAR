@@ -1,4 +1,4 @@
-package eg.mahmoudShawky.metar.ui.favouriteStations;
+package eg.mahmoudShawky.metar.ui.favoritesStations;
 
 import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.LiveData;
@@ -12,7 +12,7 @@ import eg.mahmoudShawky.metar.ui.base.BaseViewModel;
 import eg.mahmoudShawky.metar.utils.concurrent.SimpleAsyncTask;
 
 @ActivityScoped
-public class FavouriteStationsViewModel extends BaseViewModel {
+public class FavoritesViewModel extends BaseViewModel {
 
     private LiveData<List<StationEntity>> stations;
 
@@ -21,7 +21,7 @@ public class FavouriteStationsViewModel extends BaseViewModel {
     }
 
     @ViewModelInject
-    public FavouriteStationsViewModel(Repository repository) {
+    public FavoritesViewModel(Repository repository) {
         super(repository);
         stations = repository.getFavouriteStationsLiveData();
     }
