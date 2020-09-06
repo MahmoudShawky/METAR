@@ -6,7 +6,12 @@ import android.text.TextUtils;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,5 +57,30 @@ public class Utils {
         }
 
         return null;
+    }
+
+    /***
+     /**
+     * Helper method for testing LiveData objects, from
+     * https://github.com/googlesamples/android-architecture-components.
+     *
+     * Get the value from a LiveData object. We're waiting for LiveData to emit, for 2 seconds.
+     * Once we got a notification via onChanged, we stop observing.
+     */
+    public static <T> T getOrAwaitValue(final LiveData<T> liveData) throws InterruptedException {
+        final Object[] data = new Object[1];
+        final CountDownLatch latch = new CountDownLatch(1);
+        Observer<T> observer = new Observer<T>() {
+            @Override
+            public void onChanged(@Nullable T o) {
+                data[0] = o;
+                latch.countDown();
+                liveData.removeObserver(this);
+            }
+        };
+        liveData.observeForever(observer);
+        latch.await(5, TimeUnit.SECONDS);
+        //noinspection unchecked
+        return (T) data[0];
     }
 }
