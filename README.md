@@ -19,11 +19,11 @@ Application implemented based on MVVM pattern and repository pattern.
 
  - [View Binding](https://developer.android.com/topic/libraries/view-binding)-  is a new view access mechanism that was released in conjunction with Android Studio, In most cases, view binding replaces `findViewById`.
  - [Lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle)  - Create a UI that automatically responds to lifecycle events.
--   [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)  - Build data objects that notify views when the underlying database changes.
--   [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/)  - Handle everything needed for in-app navigation.
--   [Room](https://developer.android.com/topic/libraries/architecture/room)  - Access your app's SQLite database with in-app objects and compile-time checks.
--   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)  - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
--   [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)  - Manage your Android background jobs.
+ - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)  - Build data objects that notify views when the underlying database changes.
+ - [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/)  - Handle everything needed for in-app navigation.
+ - [Room](https://developer.android.com/topic/libraries/architecture/room)  - Access your app's SQLite database with in-app objects and compile-time checks.
+ - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)  - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
+ - [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)  - Manage your Android background jobs.
 
 [UI](): User Interface
  - [activity](https://developer.android.com/jetpack/androidx/releases/activity)- Access composable APIs built on top of Activity.
