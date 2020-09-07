@@ -15,10 +15,6 @@ Application implemented based on MVVM pattern and repository pattern.
 
 <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png">
 
-
-# Screenshots
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png">
-
 # Used Libraries
 [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
 
@@ -30,7 +26,7 @@ Application implemented based on MVVM pattern and repository pattern.
 -   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)  - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
 -   [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager)  - Manage your Android background jobs.
 
-[UI](): 
+[UI](): User Interface
  - [activity](https://developer.android.com/jetpack/androidx/releases/activity)- Access composable APIs built on top of Activity.
  - [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) -Allows access to new APIs on older API versions of the platform (many using Material Design).
 -   [Fragment](https://developer.android.com/guide/components/fragments)  - A basic unit of composable UI.
@@ -39,3 +35,13 @@ Application implemented based on MVVM pattern and repository pattern.
 [Dependency injection](https://developer.android.com/training/dependency-injection) - is a technique in which an object receives other objects that it depends on.
 
  - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)- Hilt is a dependency injection library for Android that extends the functionality of Dagger Hilt to enable dependency injection of certain classes from the androidx libraries, reduces the boilerplate of doing manual dependency injection in the project.
+ 
+ 
+# Screenshots
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png">
+
+
+LICENSE
+Copyright [2020] [Mahmoud Shawky] Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
