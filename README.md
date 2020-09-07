@@ -12,15 +12,15 @@ This project uses the Gradle build system. To build this project, use the `gradl
 Application implemented based on MVVM pattern and repository pattern.
 
 [MVVM](https://developer.android.com/jetpack/guide#recommended-app-arch): (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance.
-![Application Stracture](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png | 600*450)
+![Application Stracture](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png=600*450)
 
 
 # Screenshots
-![Favorites Screen (empty)](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png 280*570)
-![Favorites Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png 280*570)
-![Search screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png 280*570)
-![Searching](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png 280*570)
-![Details Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png 280*570)
+![Favorites Screen (empty)](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png=280*570)
+![Favorites Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png=280*570)
+![Search screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png=280*570)
+![Searching](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png=280*570)
+![Details Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png=280*570)
 
 # Used Libraries
 [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
