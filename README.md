@@ -10,7 +10,6 @@ This project uses the Gradle build system. To build this project, use the `gradl
 
 # Application Architecture
 Application implemented based on MVVM pattern and repository pattern.
-
 [MVVM](https://developer.android.com/jetpack/guide#recommended-app-arch): (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance.
 
 <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png">
@@ -29,8 +28,8 @@ Application implemented based on MVVM pattern and repository pattern.
 [UI](): User Interface
  - [activity](https://developer.android.com/jetpack/androidx/releases/activity)- Access composable APIs built on top of Activity.
  - [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) -Allows access to new APIs on older API versions of the platform (many using Material Design).
--   [Fragment](https://developer.android.com/guide/components/fragments)  - A basic unit of composable UI.
-- [cardview](https://developer.android.com/jetpack/androidx/releases/cardview) - Implement the Material Design card pattern with round corners and drop shadows.
+ - [Fragment](https://developer.android.com/guide/components/fragments)  - A basic unit of composable UI.
+ - [cardview](https://developer.android.com/jetpack/androidx/releases/cardview) - Implement the Material Design card pattern with round corners and drop shadows.
 
 [Dependency injection](https://developer.android.com/training/dependency-injection) - is a technique in which an object receives other objects that it depends on.
 
