@@ -8,7 +8,7 @@ This application uses pure Java, Android Jetpack and Google official libraries o
 # Getting Started
 This project uses the Gradle build system. To build this project, use the `gradlew build` command or use "Import Project" in Android Studio.
 
-**Application Architecture** 
+# Application Architecture
 Application implemented based on MVVM pattern and repository pattern.
 
 [MVVM](https://developer.android.com/jetpack/guide#recommended-app-arch): (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance.
