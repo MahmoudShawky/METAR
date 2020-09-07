@@ -13,15 +13,15 @@ Application implemented based on MVVM pattern and repository pattern.
 
 [MVVM](https://developer.android.com/jetpack/guide#recommended-app-arch): (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance.
 
-![Application Stracture](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png){:height="20%" width=20%"}
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png">
 
 
 # Screenshots
-![Favorites Screen (empty)](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png){:height="700px" width="400px"}
-![Favorites Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png){:height="700px" width="400px"}
-![Search screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png){:height="700px" width="400px"}
-![Searching](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png){:height="700px" width="400px"}
-![Details Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png){:height="700px" width="400px"}
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png">
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png"
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png"
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png"
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png"
 
 # Used Libraries
 [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
