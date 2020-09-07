@@ -17,11 +17,7 @@ Application implemented based on MVVM pattern and repository pattern.
 
 
 # Screenshots
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png">
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png"
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png"
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png"
-<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png"
+<img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png"> <img src="https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png">
 
 # Used Libraries
 [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
