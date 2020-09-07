@@ -8,15 +8,19 @@ This application uses pure Java, Android Jetpack and Google official libraries o
 # Getting Started
 This project uses the Gradle build system. To build this project, use the `gradlew build` command or use "Import Project" in Android Studio.
 
-![Application Stracture](https://photos.app.goo.gl/p8vj2qPbQzDYACYJ8)
+**Application Architecture** 
+Application implemented based on MVVM pattern and repository pattern.
+
+[MVVM](https://developer.android.com/jetpack/guide#recommended-app-arch): (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance.
+![Application Stracture](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/architecture.png)
 
 
 # Screenshots
-![Favorites Screen (empty)](https://photos.app.goo.gl/GWqj2oK3kH6jurPt9)
-![Favorites Screen](https://photos.app.goo.gl/KwfZhsqNU3xBLN747)
-![Search screen](https://photos.app.goo.gl/8pxWKK1CoPtmrzET6)
-![Searching](https://photos.app.goo.gl/fbDxdSPDa4azQmBZ6)
-![Details Screen](https://photos.app.goo.gl/aANxkswQU4irTXK49)
+![Favorites Screen (empty)](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/1.png)
+![Favorites Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/2.png)
+![Search screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/3.png)
+![Searching](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/4.png)
+![Details Screen](https://github.com/MahmoudShawky/NOAA_METAR/blob/master/screenshots/5.png)
 
 # Used Libraries
 [Architecture](https://developer.android.com/jetpack/arch/) - A collection of libraries that help you design robust, testable, and maintainable apps. Start with classes for managing your UI component lifecycle and handling data persistence.
