@@ -67,8 +67,8 @@ public class FavoritesFragment extends BaseFragment {
     }
 
     private void openDetails(StationEntity station) {
-        FavouriteStationsFragmentDirections.ActionFavouriteStationsFragmentToMetarDetailsFragment action
-                = FavouriteStationsFragmentDirections.actionFavouriteStationsFragmentToMetarDetailsFragment(station.getId());
+        FavoritesFragmentDirections.ActionFavouriteStationsFragmentToMetarDetailsFragment action
+                = FavoritesFragmentDirections.actionFavouriteStationsFragmentToMetarDetailsFragment(station.getId());
         getNavController().navigate(action);
     }
 
