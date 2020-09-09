@@ -75,7 +75,6 @@ public class MetarDetailsFragment extends BaseFragment {
                     break;
 
                 case NetworkStatus.REFRESHING:
-                    binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
                     binding.swipeRefreshLayout.setRefreshing(true);
                     break;
             }
@@ -89,7 +88,6 @@ public class MetarDetailsFragment extends BaseFragment {
             } else {
                 adapter.updatePairs(result);
             }
-            binding.swipeRefreshLayout.setRefreshing(false);
         });
 
         viewModel.station.observe(getViewLifecycleOwner(), stationEntity -> {

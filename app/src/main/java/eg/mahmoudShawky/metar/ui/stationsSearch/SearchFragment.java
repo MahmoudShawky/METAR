@@ -41,7 +41,7 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
         viewModel = getViewModelProvider()
                 .get(SearchViewModel.class);
 
-        viewModel.getAllStations();
+        viewModel.loadData(false);
     }
 
     @Override
@@ -81,6 +81,7 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
                     break;
 
                 case NetworkStatus.REFRESHING:
+                    showLoading(false);
                     binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
                     binding.swipeRefreshLayout.setRefreshing(true);
                     break;
@@ -98,8 +99,7 @@ public class SearchFragment extends BaseFragment implements SearchView.OnQueryTe
         viewModel.getStations().observe(getViewLifecycleOwner(), stationEntities -> {
             if (stationEntities == null || stationEntities.isEmpty()) return;
             if (binding.swipeRefreshLayout.getVisibility() != View.VISIBLE) {
-                binding.placeHolder.mainLayout.setVisibility(View.GONE);
-                binding.swipeRefreshLayout.setVisibility(View.VISIBLE);
+                showLoading(false);
             }
             adapter.update(stationEntities);
         });

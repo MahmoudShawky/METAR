@@ -6,6 +6,8 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 /***
  * @author mahmoud.shawky
  *
@@ -79,5 +81,18 @@ public class StationEntity {
 
     public void setFavourite(boolean favourite) {
         isFavourite = favourite;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StationEntity)) return false;
+        StationEntity that = (StationEntity) o;
+        return getId().equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }

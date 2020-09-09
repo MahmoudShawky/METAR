@@ -31,8 +31,8 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://tgftp.nws.noaa.gov/data/observations/metar/\"")
         }
         release {
-            minifyEnabled false
-            //shrinkResources true
+            minifyEnabled true
+            shrinkResources true
             buildConfigField("String", "BASE_URL", "\"https://tgftp.nws.noaa.gov/data/observations/metar/\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

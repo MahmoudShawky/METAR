@@ -5,8 +5,8 @@ buildscript {
         targetSdk = 30
         toolVersion = "30.0.0"
 
-        appVersionCode = 1
-        appVersionName = "0.0.1"
+        appVersionCode = 2
+        appVersionName = "1.0.0"
 
         kotlin_version = '1.4.0'
         nav_version = '2.3.0-alpha06'
